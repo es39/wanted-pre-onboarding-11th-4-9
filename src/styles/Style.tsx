@@ -12,6 +12,7 @@ export const Content = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  width: 100vw;
   h2 {
     font-size: 2.125rem;
     font-weight: 700;
