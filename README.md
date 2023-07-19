@@ -4,6 +4,15 @@
 ## Demo
 ![demo](https://github.com/es39/wanted-pre-onboarding-11th-4-9/assets/115976203/2a1cc3c8-1dc1-4601-a5dc-b42593161b87)
 
+## 개발기간
+7월 16일(일) 12:00 ~ 7월 19일(수) 24:00
+
+## 개발환경
+- 개발언어 : TypeScript
+- 스타일 : styled-components
+- HTTP Client: axios
+- 라우팅 : react-router-dom
+
 ## 요구사항
 #### 1. 질환명 검색시 API 호출 통해서 검색어 추천 기능 구현 (검색어가 없을 시 “검색어 없음” 표출)
 #### 2. API 호출별로 로컬 캐싱 구현
