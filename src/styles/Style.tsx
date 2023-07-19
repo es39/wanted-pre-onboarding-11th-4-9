@@ -97,9 +97,19 @@ export const Dropdown = styled.div`
   padding: 5px;
   border-radius: 20px;
   margin-top: 10px;
+  div {
+    color: #a9a9a9;
+    padding: 10px;
+  }
   li {
     list-style: none;
     padding: 10px;
+    &:hover {
+      background-color: #d1d1d1;
+    }
+    .focused {
+      background-color: blue;
+    }
   }
   .no-result {
     padding: 10px;
