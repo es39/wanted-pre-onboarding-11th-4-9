@@ -6,7 +6,6 @@ const SearchList: React.FC<SickProps> = ({
   recommendSearch,
   userInput,
 }) => {
-  console.log(recommendSearch);
   return (
     <DropdownContainer>
       <ul>
@@ -17,7 +16,7 @@ const SearchList: React.FC<SickProps> = ({
                 .map(el => <li key={el.sickCd}>{el.sickNm}</li>)
                 .slice(0, 5)
             ) : (
-              <div>검색어없음</div>
+              <div className="no-result">검색어없음</div>
             )}
           </Dropdown>
         ) : null}

@@ -101,4 +101,7 @@ export const Dropdown = styled.div`
     list-style: none;
     padding: 10px;
   }
+  .no-result {
+    padding: 10px;
+  }
 `;
