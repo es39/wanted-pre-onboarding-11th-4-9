@@ -1,14 +1,28 @@
-const SearchList = (searchData: any, isSearching: boolean) => {
+import { Dropdown, DropdownContainer } from 'styles/Style';
+import { SickProps } from 'types/sickType';
+
+const SearchList: React.FC<SickProps> = ({
+  isSearching,
+  recommendSearch,
+  userInput,
+}) => {
+  console.log(recommendSearch);
   return (
-    <>
-      {!isSearching ? (
-        searchData.length !== 0 ? (
-          searchData.map((el: any, idx: number) => <li key={idx}>{el[1]}</li>)
-        ) : (
-          <span>검색어 없음</span>
-        )
-      ) : null}
-    </>
+    <DropdownContainer>
+      <ul>
+        {isSearching ? (
+          <Dropdown>
+            {userInput && recommendSearch ? (
+              recommendSearch
+                .map(el => <li key={el.sickCd}>{el.sickNm}</li>)
+                .slice(0, 5)
+            ) : (
+              <div>검색어없음</div>
+            )}
+          </Dropdown>
+        ) : null}
+      </ul>
+    </DropdownContainer>
   );
 };
 

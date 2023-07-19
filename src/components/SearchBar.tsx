@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AiOutlineSearch } from 'react-icons/ai';
 import {
   FormContainer,
@@ -8,38 +8,50 @@ import {
   SearchInput,
 } from 'styles/Style';
 import api from 'utils/api';
+import { SickDataProps } from '../types/sickType';
 import SearchList from './SearchList';
 
 const SearchBar = () => {
-  // const navigate = useNavigate();
-  // const [searchData, setSearchData] = useState('');
   const [userInput, setUserInput] = useState<string>('');
-  // const [searchParams, setSearchParams] = useSearchParams(); // * params
-  const [searchData, setSearchData] = useState([]);
+  const [searchData, setSearchData] = useState<SickDataProps>();
   const [isSearching, setIsSearching] = useState(false);
+  const [recommendSearch, setRecommendSearch] = useState<SickDataProps>();
 
   const handleUserInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.target.value);
+    if (searchData) {
+      const filteredResult = searchData.filter(el => {
+        return el.sickNm.includes(e.target.value);
+      });
+      setRecommendSearch(filteredResult);
+    }
+    if (e.target.value === '') {
+      setRecommendSearch([]);
+    }
   };
 
-  const handleSearchSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    api
-      .get('/sick', {
-        params: {
-          q: userInput,
-        },
-      })
-      .then(res => {
-        console.log(res);
-        setSearchData(res.data);
-        setIsSearching(true);
-      });
+  // useEffect(() => {
+  //   const handleSearchKeyUpDown = (e: KeyboardEvent) => {
+  //     if (e.key === 'ArrowUp') {
+  //     }
+  //     if (e.key === 'ArrowDown') {
+  //     }
+  //   };
+  // }, []);
+
+  useEffect(() => {
+    api.get('/sick').then(res => {
+      setSearchData(res.data);
+      console.info('calling api');
+    });
+  }, []);
+
+  const handleSearchDropdown = () => {
+    setIsSearching(true);
   };
-  console.log(searchData);
-  // 포커스 됐을 때 밑에 드롭다운
+
   return (
-    <FormContainer onSubmit={handleSearchSubmit}>
+    <FormContainer>
       <SearchContainer>
         <InputContainer>
           <AiOutlineSearch className="input-icon" />
@@ -47,6 +59,7 @@ const SearchBar = () => {
             placeholder="질환명을 입력해주세요"
             type="text"
             onChange={handleUserInput}
+            onClick={handleSearchDropdown}
           />
         </InputContainer>
         <div>
@@ -55,14 +68,18 @@ const SearchBar = () => {
           </SearchButton>
         </div>
       </SearchContainer>
-      <SearchList searchData={searchData} isSearching={isSearching} />
+      <SearchList
+        isSearching={isSearching}
+        recommendSearch={recommendSearch}
+        userInput={userInput}
+      />
     </FormContainer>
   );
 };
 
 export default SearchBar;
 /* TODO:
-1. 검색 기능 구현 (filter) -> 버튼 클릭 시, get 요청 보내고, params 내용과 일치하는 내용들 출력..?
+1. 검색 기능 구현 -> 버튼 클릭 시, get 요청 보내고, params 내용과 일치하는 내용들 출력..?
 1-1. 검색어 없을 시, 검색어 없음 표현
 2. 드롭다운 구현
 3. 키보드 만으로 할 수 있도록 구현
