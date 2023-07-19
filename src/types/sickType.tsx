@@ -7,6 +7,6 @@ export type SickDataProps = SickData[];
 
 export type SickProps = {
   isSearching: boolean;
-  recommendSearch: SickDataProps | undefined;
+  recommendSearch: SickDataProps;
   userInput: string;
 };
