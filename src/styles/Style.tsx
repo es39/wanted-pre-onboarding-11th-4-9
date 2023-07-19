@@ -28,6 +28,7 @@ export const FormContainer = styled.form`
   width: 600px;
   max-width: 600px;
   padding: 50px;
+  flex-direction: column;
 `;
 
 export const SearchContainer = styled.section`
@@ -69,6 +70,7 @@ export const InputContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `;
 export const SearchButton = styled.button`
   background-color: #017be8;
@@ -81,5 +83,22 @@ export const SearchButton = styled.button`
     color: white;
     font-size: 1.5rem;
     font-weight: 500;
+  }
+`;
+
+export const DropdownContainer = styled.div`
+  width: 100%;
+`;
+
+export const Dropdown = styled.div`
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  border-radius: 20px;
+  margin-top: 10px;
+  li {
+    list-style: none;
+    padding: 10px;
   }
 `;
