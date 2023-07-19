@@ -13,25 +13,24 @@ import SearchList from './SearchList';
 
 const SearchBar = () => {
   const [userInput, setUserInput] = useState<string>('');
-  const [searchData, setSearchData] = useState<SickDataProps>();
   const [isSearching, setIsSearching] = useState(false);
   const [recommendSearch, setRecommendSearch] = useState<SickDataProps>([]);
 
   useEffect(() => {
-    api.get('/sick').then(res => {
-      setSearchData(res.data);
-      console.info('calling api');
-    });
-  }, []);
+    api
+      .get('/sick', {
+        params: {
+          q: userInput,
+        },
+      })
+      .then(res => {
+        setRecommendSearch(res.data);
+        console.info('calling api');
+      });
+  }, [userInput]);
 
   const handleUserInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.target.value);
-    if (searchData) {
-      const filteredResult = searchData.filter(el => {
-        return el.sickNm.includes(e.target.value);
-      });
-      setRecommendSearch(filteredResult);
-    }
     if (e.target.value === '') {
       setRecommendSearch([]);
     }
