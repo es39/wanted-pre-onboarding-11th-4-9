@@ -2,6 +2,7 @@
 ### 한국임상정보 - 검색 기능 클론 코딩
 
 ## Demo
+![demo](https://github.com/es39/wanted-pre-onboarding-11th-4-9/assets/115976203/2a1cc3c8-1dc1-4601-a5dc-b42593161b87)
 
 ## 요구사항
 #### 1. 질환명 검색시 API 호출 통해서 검색어 추천 기능 구현 (검색어가 없을 시 “검색어 없음” 표출)
