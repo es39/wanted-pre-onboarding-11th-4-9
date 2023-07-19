@@ -15,7 +15,7 @@ const SearchBar = () => {
   const [userInput, setUserInput] = useState<string>('');
   const [searchData, setSearchData] = useState<SickDataProps>();
   const [isSearching, setIsSearching] = useState(false);
-  const [recommendSearch, setRecommendSearch] = useState<SickDataProps>();
+  const [recommendSearch, setRecommendSearch] = useState<SickDataProps>([]);
 
   useEffect(() => {
     api.get('/sick').then(res => {
