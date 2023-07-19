@@ -44,7 +44,7 @@ const SearchList: React.FC<SickProps> = ({
                 ))
                 .slice(0, 5)
             ) : (
-              <div className="no-result">검색어없음</div>
+              <div className="no-result">검색어 없음</div>
             )}
           </Dropdown>
         ) : null}
