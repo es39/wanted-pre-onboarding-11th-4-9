@@ -19,3 +19,22 @@
 #### 3. 입력마다 API 호출하지 않도록 API 호출 횟수를 줄이는 전략 수립 및 실행
 #### 4. API를 호출할 때 마다 console.info("calling api") 출력
 #### 5. 키보드만으로 추천 검색어들로 이동 가능하도록 구현
+```javascript
+useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // 키보드 이벤트 처리
+      if (e.key === 'ArrowUp') {
+        setSearchIndex(prev => Math.max(prev - 1, -1));
+      } else if (e.key === 'ArrowDown') {
+        setSearchIndex(prev => Math.min(prev + 1, recommendSearch.length - 1));
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [userInput, recommendSearch]);
+```
+* useEffect 를 사용하여 검색 내용이 바뀔 때 마다 실행되도록 구현
+* keyboard event 를 사용하여 up키 일 때, down키 일 때로 구분하여 작성
+* up키 일 때 index-1 로, down키 일 때 index+1 로 업데이트 하여 현재 해당하는 index 값을 key event에 따라 업데이트 시켜주도록 작성
