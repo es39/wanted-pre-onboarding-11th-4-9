@@ -1,11 +1,15 @@
+import GlobalStyle from 'GlobalStyle';
 import MainPage from 'page/MainPage';
-import { Container } from 'styles/Style';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const App = () => {
   return (
-    <Container>
-      <MainPage />
-    </Container>
+    <BrowserRouter>
+      <GlobalStyle />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
