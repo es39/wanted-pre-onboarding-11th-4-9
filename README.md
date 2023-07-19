@@ -2,7 +2,7 @@
 ### 한국임상정보 - 검색 기능 클론 코딩
 
 ## Demo
-![demo](https://github.com/es39/wanted-pre-onboarding-11th-4-9/assets/115976203/2a1cc3c8-1dc1-4601-a5dc-b42593161b87)
+![demo2](https://github.com/es39/wanted-pre-onboarding-11th-4-9/assets/115976203/65d7aa93-0d37-4309-aeb5-dbbdcfca5f61)
 
 ## 개발기간
 7월 16일(일) 12:00 ~ 7월 19일(수) 24:00
