@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
   main {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     min-height: 100vh;
   }

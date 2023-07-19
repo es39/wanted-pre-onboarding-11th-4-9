@@ -21,11 +21,20 @@ export const Content = styled.section`
     text-align: center;
   }
 `;
-export const SearchContainer = styled.main`
+export const FormContainer = styled.form`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  max-width: 600px;
+  padding: 50px;
+`;
+
+export const SearchContainer = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 490px;
+  max-width: 100%;
   border-radius: 42px;
   border: 2px solid;
   border-color: #ffffff;
