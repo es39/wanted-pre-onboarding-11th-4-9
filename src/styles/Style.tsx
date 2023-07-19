@@ -107,9 +107,6 @@ export const Dropdown = styled.div`
     &:hover {
       background-color: #d1d1d1;
     }
-    .focused {
-      background-color: blue;
-    }
   }
   .no-result {
     padding: 10px;
