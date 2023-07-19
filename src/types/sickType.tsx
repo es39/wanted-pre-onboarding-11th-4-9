@@ -4,3 +4,9 @@ export type SickData = {
 };
 
 export type SickDataProps = SickData[];
+
+export type SickProps = {
+  isSearching: boolean;
+  recommendSearch: SickDataProps | undefined;
+  userInput: string;
+};
